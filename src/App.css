@@ -1,38 +1,101 @@
-.App {
-  text-align: center;
+.container__outer {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.container__inner {
+  border: solid 1px grey;
+  width: 800px;
+  height: 100%;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.messages {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.message {
+  max-width: 70%;
+  margin: 20px 20px 0px;
+}
+
+.message__self {
+  align-self: flex-end;
+}
+
+.message__other {
+  align-self: flex-start;
+}
+
+._sender {
+  color: gray;
+  font-size: 12px;
+  padding: 0 5px;
+}
+
+._content {
+  padding: 10px;
+}
+
+.message__self ._content {
+  background-color: dodgerblue;
   color: white;
+  border-radius: 20px 16px 4px 20px;
+  transform-origin: right bottom;
+  animation: growX 0.5s cubic-bezier(.175,.885,.32,1.275) forwards;
+
 }
 
-.App-link {
-  color: #61dafb;
+.message__other ._content {
+  background-color: lightgray;
+  color: black;
+  border-radius: 16px 20px 20px 4px;
+  transform-origin: left bottom;
+  animation: growX 0.5s cubic-bezier(.175,.885,.32,1.275) forwards;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.message__self ._sender {
+  text-align: right;
+}
+
+.input {
+  margin: 10px;
+  height: 38px;
+  line-height: 38px;
+  font-size: 16px;
+  border-radius: 20px;
+  padding: 0 16px;
+  outline: 0;
+  border: solid 1px grey;
+  transition: 0.2s ease;
+}
+
+.input:focus {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  transition: 0.2s ease;
+}
+
+@keyframes growX {
+  0% {
+    opacity: 0;
+    transform: scale(0, 0);
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
   }
 }
