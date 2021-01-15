@@ -4,8 +4,6 @@ import firebase from "firebase"
 
 function App() {
 
-
-
   // ---- State values (Step 2)
   const [name, setName] = React.useState(null)        // name of the current user
   const [messages, setMessages] = React.useState([])  // all of the messages we are displaying
